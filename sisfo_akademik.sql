@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2023 at 01:57 AM
+-- Generation Time: Feb 17, 2023 at 04:52 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `sisfo_akademik`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurusan`
+--
+
+CREATE TABLE `jurusan` (
+  `id_jurusan` int(11) NOT NULL,
+  `kode_jurusan` varchar(3) NOT NULL,
+  `nama_jurusan` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jurusan`
+--
+
+INSERT INTO `jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`) VALUES
+(1, 'TI', 'Teknologi Informasi'),
+(2, 'SI', 'Sistem Informasi'),
+(3, 'SIA', 'Sistem Informasi Akuntans');
 
 -- --------------------------------------------------------
 
@@ -49,6 +70,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `blokir`, `i
 --
 
 --
+-- Indexes for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  ADD PRIMARY KEY (`id_jurusan`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -57,6 +84,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
