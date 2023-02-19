@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 01:41 AM
+-- Generation Time: Feb 19, 2023 at 08:54 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -42,6 +42,28 @@ INSERT INTO `jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`) VALUES
 (2, 'SI', 'Sistem Informasi'),
 (4, 'SIA', 'Sistem Informasi Akuntans'),
 (5, 'ILK', 'Ilmu Komputer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `matakuliah`
+--
+
+CREATE TABLE `matakuliah` (
+  `id_matakuliah` int(11) NOT NULL,
+  `kode_matakuliah` varchar(10) NOT NULL,
+  `nama_matakuliah` varchar(100) NOT NULL,
+  `sks` int(5) NOT NULL,
+  `semester` int(10) NOT NULL,
+  `nama_prodi` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `matakuliah`
+--
+
+INSERT INTO `matakuliah` (`id_matakuliah`, `kode_matakuliah`, `nama_matakuliah`, `sks`, `semester`, `nama_prodi`) VALUES
+(2, 'MSC22', 'Teknik Mobile Legend 2', 4, 7, 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -98,6 +120,12 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
 
 --
+-- Indexes for table `matakuliah`
+--
+ALTER TABLE `matakuliah`
+  ADD PRIMARY KEY (`id_matakuliah`);
+
+--
 -- Indexes for table `prodi`
 --
 ALTER TABLE `prodi`
@@ -118,6 +146,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `jurusan`
   MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `matakuliah`
+--
+ALTER TABLE `matakuliah`
+  MODIFY `id_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prodi`

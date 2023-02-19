@@ -36,7 +36,7 @@
                         <h6 class="collapse-header">Sub Menu:</h6>
                         <a class="collapse-item" href="<?= base_url('administrator/jurusan') ?>">Jurusan</a>
                         <a class="collapse-item" href="<?= base_url('administrator/prodi') ?>">Program Studi</a>
-                        <a class="collapse-item" href="cards.html">Mata Kuliah</a>
+                        <a class="collapse-item" href="<?= base_url('administrator/matakuliah') ?>">Mata Kuliah</a>
                         <a class="collapse-item" href="cards.html">Mahasiswa</a>
                         <a class="collapse-item" href="cards.html">Tahun Akademik</a>
                         <a class="collapse-item" href="cards.html">KRS</a>
