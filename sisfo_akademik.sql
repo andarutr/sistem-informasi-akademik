@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2023 at 04:52 AM
+-- Generation Time: Feb 19, 2023 at 01:41 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -40,7 +40,29 @@ CREATE TABLE `jurusan` (
 INSERT INTO `jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`) VALUES
 (1, 'TI', 'Teknologi Informasi'),
 (2, 'SI', 'Sistem Informasi'),
-(3, 'SIA', 'Sistem Informasi Akuntans');
+(4, 'SIA', 'Sistem Informasi Akuntans'),
+(5, 'ILK', 'Ilmu Komputer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prodi`
+--
+
+CREATE TABLE `prodi` (
+  `id_prodi` int(11) NOT NULL,
+  `kode_prodi` varchar(20) NOT NULL,
+  `nama_prodi` varchar(25) NOT NULL,
+  `nama_jurusan` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prodi`
+--
+
+INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`, `nama_jurusan`) VALUES
+(1, 'SIA', 'Sistem Informasia', 'Teknologi Informasi'),
+(2, 'FTI', 'Teknik Informatika', 'Sistem Informasi Akuntans');
 
 -- --------------------------------------------------------
 
@@ -76,6 +98,12 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
 
 --
+-- Indexes for table `prodi`
+--
+ALTER TABLE `prodi`
+  ADD PRIMARY KEY (`id_prodi`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -89,7 +117,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `prodi`
+--
+ALTER TABLE `prodi`
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

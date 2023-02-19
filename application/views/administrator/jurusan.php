@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<h4>
-        <i class="fas fa-tachometer-alt"></i> Dashboard
+        <i class="fas fa-tachometer-alt mb-3"></i> Jurusan
     </h4>
 
     <a href="<?= base_url('administrator/jurusan/input') ?>" class="btn btn-sm btn-primary mb-3"><i class="fas fa-sm fa-plus"></i>Tambah Jurusan</a>
