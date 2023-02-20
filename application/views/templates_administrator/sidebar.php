@@ -37,7 +37,7 @@
                         <a class="collapse-item" href="<?= base_url('administrator/jurusan') ?>">Jurusan</a>
                         <a class="collapse-item" href="<?= base_url('administrator/prodi') ?>">Program Studi</a>
                         <a class="collapse-item" href="<?= base_url('administrator/matakuliah') ?>">Mata Kuliah</a>
-                        <a class="collapse-item" href="cards.html">Mahasiswa</a>
+                        <a class="collapse-item" href="<?= base_url('administrator/mahasiswa') ?>">Mahasiswa</a>
                         <a class="collapse-item" href="cards.html">Tahun Akademik</a>
                         <a class="collapse-item" href="cards.html">KRS</a>
                         <a class="collapse-item" href="cards.html">Input Nilai</a>
