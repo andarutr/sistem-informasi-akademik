@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 05:59 AM
+-- Generation Time: Feb 23, 2023 at 08:03 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -116,6 +116,26 @@ INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`, `nama_jurusan`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tahun_akademik`
+--
+
+CREATE TABLE `tahun_akademik` (
+  `id` int(11) NOT NULL,
+  `tahun_akademik` varchar(20) NOT NULL,
+  `semester` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tahun_akademik`
+--
+
+INSERT INTO `tahun_akademik` (`id`, `tahun_akademik`, `semester`, `status`) VALUES
+(2, '2019/2020', 'Ganjil', 'Aktif');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -165,6 +185,12 @@ ALTER TABLE `prodi`
   ADD PRIMARY KEY (`id_prodi`);
 
 --
+-- Indexes for table `tahun_akademik`
+--
+ALTER TABLE `tahun_akademik`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -197,6 +223,12 @@ ALTER TABLE `matakuliah`
 --
 ALTER TABLE `prodi`
   MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tahun_akademik`
+--
+ALTER TABLE `tahun_akademik`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
