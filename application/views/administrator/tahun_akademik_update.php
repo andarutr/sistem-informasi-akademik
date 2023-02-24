@@ -7,7 +7,7 @@
 	<form action="<?= base_url('administrator/tahun_akademik/update_aksi') ?>" method="POST">
 		<div class="form-group">
 			<label>Tahun Akademik</label>
-			<input type="hidden" name="id" value="<?= $taka->id ?>">
+			<input type="hidden" name="id_thn_akad" value="<?= $taka->id_thn_akad ?>">
 			<input type="text" name="tahun_akademik" placeholder="Masukkan tahun akademik" class="form-control" value="<?= $taka->tahun_akademik ?>">
 			<?= form_error('tahun_akademik', '<p class="text-danger ml-3">','</p>') ?>
 		</div>

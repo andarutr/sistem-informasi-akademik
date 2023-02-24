@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2023 at 08:03 AM
+-- Generation Time: Feb 24, 2023 at 05:17 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -46,6 +46,20 @@ INSERT INTO `jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `krs`
+--
+
+CREATE TABLE `krs` (
+  `id_krs` int(11) NOT NULL,
+  `id_thn_akad` int(10) NOT NULL,
+  `nim` varchar(10) NOT NULL,
+  `kode_matakuliah` varchar(10) NOT NULL,
+  `nilai` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mahasiswa`
 --
 
@@ -68,7 +82,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nim`, `nama_lengkap`, `alamat`, `email`, `telepon`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `nama_prodi`, `photo`) VALUES
-(2, '123456', 'Dimas fauzi', 'Jakarta Timur', 'dimss@gmail.com', '121921', 'Jakarta Timur', '2001-02-23', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg');
+(1, '123456', 'Dimas fauzi', 'Jakarta Timur', 'dimss@gmail.com', '121921', 'Jakarta Timur', '2001-02-23', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg'),
+(3, '654321', 'Andaru Triadi', 'Jakarta Timur', 'andarutr@gmail.com', '121922', 'Jakarta Timur', '2001-02-20', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -120,7 +135,7 @@ INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`, `nama_jurusan`) VAL
 --
 
 CREATE TABLE `tahun_akademik` (
-  `id` int(11) NOT NULL,
+  `id_thn_akad` int(11) NOT NULL,
   `tahun_akademik` varchar(20) NOT NULL,
   `semester` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
@@ -130,8 +145,8 @@ CREATE TABLE `tahun_akademik` (
 -- Dumping data for table `tahun_akademik`
 --
 
-INSERT INTO `tahun_akademik` (`id`, `tahun_akademik`, `semester`, `status`) VALUES
-(2, '2019/2020', 'Ganjil', 'Aktif');
+INSERT INTO `tahun_akademik` (`id_thn_akad`, `tahun_akademik`, `semester`, `status`) VALUES
+(3, '2020/2021', 'Genap', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -167,6 +182,12 @@ ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
 
 --
+-- Indexes for table `krs`
+--
+ALTER TABLE `krs`
+  ADD PRIMARY KEY (`id_krs`);
+
+--
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -188,7 +209,7 @@ ALTER TABLE `prodi`
 -- Indexes for table `tahun_akademik`
 --
 ALTER TABLE `tahun_akademik`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_thn_akad`);
 
 --
 -- Indexes for table `user`
@@ -207,10 +228,16 @@ ALTER TABLE `jurusan`
   MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `krs`
+--
+ALTER TABLE `krs`
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `matakuliah`
@@ -228,7 +255,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT for table `tahun_akademik`
 --
 ALTER TABLE `tahun_akademik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_thn_akad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
