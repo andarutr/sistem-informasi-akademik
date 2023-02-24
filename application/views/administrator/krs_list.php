@@ -28,7 +28,7 @@
     	</table>
     </center>
     
-    <a href="<?= base_url('administrator/krs/tambah_krs') ?>" class="btn btn-sm btn-primary mb-3"><i class="fas fa-sm fa-plus"></i>Tambah KRS</a>
+    <a href="<?= base_url('administrator/krs/tambah_krs/'.$nim.'/'.$id_thn_akad) ?>" class="btn btn-sm btn-primary mb-3"><i class="fas fa-sm fa-plus"></i>Tambah KRS</a>
     <a href="<?= base_url('administrator/krs/print') ?>" class="btn btn-sm btn-info mb-3"><i class="fas fa-sm fa-plus"></i>Print</a>
 
     <table class="table table-bordered table-striped table-hover">
@@ -41,6 +41,7 @@
     	</tr>
     	<?php 
     	$no = 1;
+        $jumlahSks = 0;
     	foreach($krs_data as $krs) : ?>
     	<tr>
     		<td width="20px"><?= $no++ ?></td>
@@ -56,10 +57,10 @@
     			<a href="<?= base_url('administrator/krs/delete/').$krs->id_krs ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
     		</td>
     	</tr>
-    	<tr>
-    		<td colspan="3" align="right"><strong>Jumlah SKS</strong></td>
-    		<td><strong><?= $jumlahSks ?></strong></td>
-    	</tr>
     	<?php endforeach; ?>
+        <tr>
+            <td colspan="3" align="right"><strong>Jumlah SKS</strong></td>
+            <td><strong><?= $jumlahSks ?></strong></td>
+        </tr>
     </table>
 </div>

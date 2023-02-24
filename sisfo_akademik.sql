@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2023 at 05:17 AM
+-- Generation Time: Feb 24, 2023 at 09:00 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -57,6 +57,16 @@ CREATE TABLE `krs` (
   `nilai` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `krs`
+--
+
+INSERT INTO `krs` (`id_krs`, `id_thn_akad`, `nim`, `kode_matakuliah`, `nilai`) VALUES
+(1, 3, '654321', 'MSC21', ''),
+(3, 3, '123456', 'MSC22', ''),
+(4, 3, '123456', 'MSC22', ''),
+(5, 3, '123456', 'MSC22', '');
+
 -- --------------------------------------------------------
 
 --
@@ -105,7 +115,8 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`id_matakuliah`, `kode_matakuliah`, `nama_matakuliah`, `sks`, `semester`, `nama_prodi`) VALUES
-(2, 'MSC22', 'Teknik Mobile Legend 2', 4, 7, 'Teknik Informatika');
+(2, 'MSC22', 'Teknik Mobile Legend 2', 4, 7, 'Teknik Informatika'),
+(3, 'MSC21', 'Teknik Mobile Legend 1', 2, 4, 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -231,7 +242,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
@@ -243,7 +254,7 @@ ALTER TABLE `mahasiswa`
 -- AUTO_INCREMENT for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-  MODIFY `id_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_matakuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prodi`
