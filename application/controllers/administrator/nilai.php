@@ -1,6 +1,16 @@
 <?php 
 
 class Nilai extends CI_Controller{
+	public function _rulesKhs(){
+		$this->form_validation->set_rules('nim','NIM','required',['required' => 'NIM harus diisi!']);
+		$this->form_validation->set_rules('id_thn_akad','ID Tahun Akad','required',['required' => 'ID Tahun Akad harus diisi!']);
+	}
+
+	public function _rulesInputNilai(){
+		$this->form_validation->set_rules('kode_matakuliah','Kode Matakuliah','required',['required' => 'Kode Matakuliah harus diisi!']);
+		$this->form_validation->set_rules('id_thn_akad','Tahun Akademik','required',['required' => 'Tahun Akademik harus diisi!']);
+	}
+
 	public function index(){
 		$data = array(
 			'nim' => set_value('nim'),
@@ -57,8 +67,45 @@ class Nilai extends CI_Controller{
 		}
 	}
 
-	public function _rulesKhs(){
-		$this->form_validation->set_rules('nim','NIM','required',['required' => 'NIM harus diisi!']);
-		$this->form_validation->set_rules('id_thn_akad','ID Tahun Akad','required',['required' => 'ID Tahun Akad harus diisi!']);
+	public function input_nilai(){
+		$data = array(
+			'kode_matakuliah' => set_value('kode_matakuliah'),
+			'id_thn_akad' => set_value('id_thn_akad'),
+		);
+
+		$this->load->view('templates_administrator/header');
+		$this->load->view('templates_administrator/sidebar');
+		$this->load->view('administrator/input_nilai_form', $data);
+		$this->load->view('templates_administrator/footer');
+	}
+
+	public function input_nilai_aksi(){
+		$this->_rulesInputNilai();
+
+		if($this->form_validation->run() == FALSE){
+			$this->input_nilai();
+		}else{
+			$kode_matakuliah = $this->input->post('kode_matakuliah', TRUE);
+			$id_thn_akad = $this->input->post('id_thn_akad', TRUE);
+
+			$this->db->select('k.id_krs, k.nim, m.nama_lengkap, k.nilai, d.nama_matakuliah');
+			$this->db->from('krs as k');
+			$this->db->join('mahasiswa as m','m.nim = k.nim');
+			$this->db->join('matakuliah as d', 'k.kode_matakuliah = d.kode_matakuliah');
+			$this->db->where('k.id_thn_akad', $id_thn_akad);
+			$this->db->where('k.kode_matakuliah', $kode_matakuliah);
+			$query = $this->db->get()->result();
+
+			$data = array(
+				'list_nilai' => $query,
+				'kode_matakuliah' => $kode_matakuliah,
+				'id_thn_akad' => $id_thn_akad,
+			);
+
+			$this->load->view('templates_administrator/header');
+			$this->load->view('templates_administrator/sidebar');
+			$this->load->view('administrator/form_nilai', $data);
+			$this->load->view('templates_administrator/footer');
+		}
 	}
 }
