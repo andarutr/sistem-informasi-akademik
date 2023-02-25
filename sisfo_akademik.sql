@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2023 at 09:00 AM
+-- Generation Time: Feb 25, 2023 at 06:20 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -38,10 +38,7 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`id_jurusan`, `kode_jurusan`, `nama_jurusan`) VALUES
-(1, 'TI', 'Teknologi Informasi'),
-(2, 'SI', 'Sistem Informasi'),
-(4, 'SIA', 'Sistem Informasi Akuntans'),
-(5, 'ILK', 'Ilmu Komputer');
+(1, 'TI', 'Teknologi Informasi');
 
 -- --------------------------------------------------------
 
@@ -62,10 +59,8 @@ CREATE TABLE `krs` (
 --
 
 INSERT INTO `krs` (`id_krs`, `id_thn_akad`, `nim`, `kode_matakuliah`, `nilai`) VALUES
-(1, 3, '654321', 'MSC21', ''),
-(3, 3, '123456', 'MSC22', ''),
-(4, 3, '123456', 'MSC22', ''),
-(5, 3, '123456', 'MSC22', '');
+(1, 1, '17190668', 'WP1', 'A'),
+(2, 1, '17190668', 'WP2', 'A');
 
 -- --------------------------------------------------------
 
@@ -92,8 +87,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nim`, `nama_lengkap`, `alamat`, `email`, `telepon`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `nama_prodi`, `photo`) VALUES
-(1, '123456', 'Dimas fauzi', 'Jakarta Timur', 'dimss@gmail.com', '121921', 'Jakarta Timur', '2001-02-23', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg'),
-(3, '654321', 'Andaru Triadi', 'Jakarta Timur', 'andarutr@gmail.com', '121922', 'Jakarta Timur', '2001-02-20', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg');
+(3, '17190668', 'Andaru Triadi', 'Jakarta Timur', 'andarutr@gmail.com', '121922', 'Jakarta Timur', '2001-02-20', 'Laki-laki', 'Teknik Informatika', 'edoardo-botez-KgVXTeh3fEg-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -115,8 +109,8 @@ CREATE TABLE `matakuliah` (
 --
 
 INSERT INTO `matakuliah` (`id_matakuliah`, `kode_matakuliah`, `nama_matakuliah`, `sks`, `semester`, `nama_prodi`) VALUES
-(2, 'MSC22', 'Teknik Mobile Legend 2', 4, 7, 'Teknik Informatika'),
-(3, 'MSC21', 'Teknik Mobile Legend 1', 2, 4, 'Teknik Informatika');
+(1, 'WP1', 'Web Programming I', 4, 6, 'Teknik Informatika'),
+(2, 'WP2', 'Web Programming II', 4, 7, 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -136,8 +130,7 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`, `nama_jurusan`) VALUES
-(1, 'SIA', 'Sistem Informasia', 'Teknologi Informasi'),
-(2, 'FTI', 'Teknik Informatika', 'Sistem Informasi Akuntans');
+(1, 'FTI', 'Teknik Informatika', 'Teknologi Informasi');
 
 -- --------------------------------------------------------
 
@@ -157,7 +150,28 @@ CREATE TABLE `tahun_akademik` (
 --
 
 INSERT INTO `tahun_akademik` (`id_thn_akad`, `tahun_akademik`, `semester`, `status`) VALUES
-(3, '2020/2021', 'Genap', 'Aktif');
+(1, '2019/2020', 'Genap', 'Aktif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transkrip_nilai`
+--
+
+CREATE TABLE `transkrip_nilai` (
+  `id_transkrip` int(11) NOT NULL,
+  `nim` varchar(15) NOT NULL,
+  `kode_matakuliah` varchar(15) NOT NULL,
+  `nilai` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transkrip_nilai`
+--
+
+INSERT INTO `transkrip_nilai` (`id_transkrip`, `nim`, `kode_matakuliah`, `nilai`) VALUES
+(1, '17190668', 'WP1', 'A'),
+(2, '17190668', 'WP2', 'A');
 
 -- --------------------------------------------------------
 
@@ -223,6 +237,12 @@ ALTER TABLE `tahun_akademik`
   ADD PRIMARY KEY (`id_thn_akad`);
 
 --
+-- Indexes for table `transkrip_nilai`
+--
+ALTER TABLE `transkrip_nilai`
+  ADD PRIMARY KEY (`id_transkrip`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -242,7 +262,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `krs`
 --
 ALTER TABLE `krs`
-  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_krs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
@@ -260,13 +280,19 @@ ALTER TABLE `matakuliah`
 -- AUTO_INCREMENT for table `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tahun_akademik`
 --
 ALTER TABLE `tahun_akademik`
-  MODIFY `id_thn_akad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_thn_akad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transkrip_nilai`
+--
+ALTER TABLE `transkrip_nilai`
+  MODIFY `id_transkrip` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

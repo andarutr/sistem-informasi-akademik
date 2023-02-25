@@ -28,6 +28,6 @@
     		 ?>
     	</div>
     	<button type="submit" class="btn btn-success">Update</button>
-    	<a href="<?= base_url('administrator/krs/krs_aksi') ?>" type="submit" class="btn btn-danger">Cancel</a>
+    	<a href="<?= base_url('administrator/krs/index') ?>" type="submit" class="btn btn-danger">Cancel</a>
     </form>
 </div>
